@@ -24,7 +24,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Paperkit - Free PDF Tools, No Watermark",
   description:
-    "46 free PDF tools. No watermark. No upload. No sign-up. Files never leave your device.",
+    "34 free PDF tools. No watermark. No upload. No sign-up. Files never leave your device.",
   manifest: "/manifest.webmanifest",
   appleWebApp: {
     capable: true,

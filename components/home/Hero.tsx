@@ -39,7 +39,7 @@ const featureCards = [
 const trustBadges = [
   { label: "No watermark", icon: CheckCircle2 },
   { label: "Sign pdfs", icon: PenLine },
-  { label: "46 tools", icon: Layers2 },
+  { label: "34 tools", icon: Layers2 },
 ];
 
 const DocumentMockup = ({ className }: { className?: string }) => {
