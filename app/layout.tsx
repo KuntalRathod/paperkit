@@ -22,6 +22,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://paperkit-cyan.vercel.app"),
   title: "Paperkit - Free PDF Tools, No Watermark",
   description:
     "34 free PDF tools. No watermark. No upload. No sign-up. Files never leave your device.",

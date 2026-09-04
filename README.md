@@ -11,7 +11,7 @@ Your files never touch a server. Every operation — merge, compress, OCR, redac
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38BDF8?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-14b8a6.svg)](#license)
 
-[Live Demo](https://paperkit.vercel.app) · [Report Bug](https://github.com/KuntalRathod/paperkit/issues) · [Request Feature](https://github.com/KuntalRathod/paperkit/issues)
+[Live Demo](https://paperkit-cyan.vercel.app) · [Report Bug](https://github.com/KuntalRathod/paperkit/issues) · [Request Feature](https://github.com/KuntalRathod/paperkit/issues)
 
 </div>
 
