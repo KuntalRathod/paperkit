@@ -106,6 +106,8 @@ const HeroDocsMockup = () => {
     >
       {/* Left Document */}
       <motion.div
+        animate={{ y: [0, -7, 0] }}
+        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
         className="absolute w-full h-full flex items-center justify-center z-0 -translate-x-[35%] sm:-translate-x-[45%] translate-y-[15%] -rotate-[15deg] scale-90 opacity-95"
       >
         <DocumentMockup />
@@ -113,6 +115,8 @@ const HeroDocsMockup = () => {
       
       {/* Right Document */}
       <motion.div
+        animate={{ y: [0, -7, 0] }}
+        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1.1 }}
         className="absolute w-full h-full flex items-center justify-center z-0 translate-x-[35%] sm:translate-x-[45%] translate-y-[10%] rotate-[12deg] scale-90 opacity-95"
       >
         <DocumentMockup />
@@ -120,7 +124,10 @@ const HeroDocsMockup = () => {
       
       {/* Center Document */}
       <motion.div
-        className="absolute w-full h-full flex items-center justify-center z-10 drop-shadow-lg scale-[1.05]"
+        animate={{ y: [0, -10, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        whileHover={{ scale: 1.09, rotate: -2 }}
+        className="absolute w-full h-full flex items-center justify-center z-10 drop-shadow-lg scale-[1.05] cursor-pointer"
       >
         <DocumentMockup />
       </motion.div>
@@ -191,9 +198,12 @@ export function Hero() {
             className="mt-4 flex flex-row items-center gap-4 px-6"
           >
             <Link href="/merge-pdf">
-              <button
+              <motion.button
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.96 }}
+                transition={{ type: "spring", stiffness: 400, damping: 22 }}
                 data-slot="button"
-                className="cursor-pointer select-none inline-flex items-center duration-200 justify-center gap-1.5 whitespace-nowrap rounded-none text-[10px] font-normal transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-3.5 shrink-0 [&_svg]:shrink-0 outline-none bg-accent text-accent-foreground hover:bg-accent-hover shadow-sm h-7 px-3 py-1 has-[>svg]:px-2"
+                className="group cursor-pointer select-none inline-flex items-center duration-200 justify-center gap-1.5 whitespace-nowrap rounded-none text-[10px] font-normal transition-colors disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-3.5 shrink-0 [&_svg]:shrink-0 outline-none bg-accent text-accent-foreground hover:bg-accent-hover shadow-sm h-7 px-3 py-1 has-[>svg]:px-2"
               >
                 <span>Get Started</span>
                 <svg
@@ -201,7 +211,7 @@ export function Hero() {
                   width="14"
                   viewBox="0 0 18 18"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="-rotate-45"
+                  className="-rotate-45 transition-transform duration-200 group-hover:translate-x-0.5"
                 >
                   <g fill="currentColor">
                     <path
@@ -215,20 +225,23 @@ export function Hero() {
                     />
                   </g>
                 </svg>
-              </button>
+              </motion.button>
             </Link>
             <div className="relative">
               <div>
                 <Link href="https://github.com/KuntalRathod/paperkit" target="_blank" rel="noopener noreferrer">
-                  <button
+                  <motion.button
+                    whileHover={{ y: -2 }}
+                    whileTap={{ scale: 0.96 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 22 }}
                     data-slot="button"
-                    className="cursor-pointer select-none inline-flex items-center duration-200 justify-center gap-1.5 whitespace-nowrap rounded-none text-[10px] font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-3.5 shrink-0 [&_svg]:shrink-0 outline-none border border-border bg-bg-subtle text-text-primary hover:bg-bg-elevated shadow-sm h-7 px-3 py-1 has-[>svg]:px-2"
+                    className="group cursor-pointer select-none inline-flex items-center duration-200 justify-center gap-1.5 whitespace-nowrap rounded-none text-[10px] font-medium transition-colors disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-3.5 shrink-0 [&_svg]:shrink-0 outline-none border border-border bg-bg-subtle text-text-primary hover:bg-bg-elevated shadow-sm h-7 px-3 py-1 has-[>svg]:px-2"
                   >
                     <span>Open Source</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16" className="h-3.5 w-3.5" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16" className="h-3.5 w-3.5 transition-transform duration-300 group-hover:rotate-12" aria-hidden="true">
                       <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
                     </svg>
-                  </button>
+                  </motion.button>
                 </Link>
               </div>
               <span className="mono-copy text-text-muted pointer-events-none absolute -top-12 left-40 size-full -rotate-[34deg] text-[10px] leading-tight">
@@ -280,13 +293,15 @@ export function Hero() {
           return (
             <motion.div
               variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } }}
+              whileHover={{ y: -3 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
               key={card.label}
-              className={`flex h-auto flex-col gap-3 border-b border-dashed border-border p-4 py-6 sm:py-4 ${
+              className={`group flex h-auto flex-col gap-3 border-b border-dashed border-border p-4 py-6 transition-colors duration-300 hover:bg-accent-subtle sm:py-4 ${
                 i !== 0 ? "sm:border-l" : ""
               }`}
             >
               <h2 className="mono-copy flex items-center gap-2 text-sm font-medium tracking-tight text-text-primary">
-                <Icon className="h-4 w-4 text-accent" aria-hidden="true" />
+                <Icon className="h-4 w-4 text-accent transition-transform duration-300 group-hover:scale-110" aria-hidden="true" />
                 {card.label}
               </h2>
               <p className="mono-copy text-xs leading-5 tracking-tight text-text-secondary">
