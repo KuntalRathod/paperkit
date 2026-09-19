@@ -7,13 +7,50 @@ import {
   ArrowUpRight,
   CheckCircle2,
   FileText,
+  FileType2,
   Heart,
+  Image as ImageIcon,
   Layers2,
+  Lock,
+  Merge,
+  Scissors,
   Shield,
   Star,
   PenLine,
 } from "lucide-react";
 import Link from "next/link";
+
+const floatingIcons = [
+  { Icon: FileType2, top: "12%", left: "8%", size: 22, duration: 7, delay: 0, drift: -12, rotate: -8 },
+  { Icon: Merge, top: "22%", left: "82%", size: 26, duration: 9, delay: 0.8, drift: -16, rotate: 6 },
+  { Icon: Scissors, top: "68%", left: "6%", size: 20, duration: 8, delay: 1.4, drift: -10, rotate: 10 },
+  { Icon: Lock, top: "78%", left: "72%", size: 24, duration: 10, delay: 0.4, drift: -14, rotate: -6 },
+  { Icon: ImageIcon, top: "45%", left: "90%", size: 20, duration: 8.5, delay: 1.9, drift: -12, rotate: 8 },
+  { Icon: FileText, top: "58%", left: "16%", size: 18, duration: 9.5, delay: 2.4, drift: -9, rotate: -10 },
+];
+
+function FloatingIcons() {
+  return (
+    <div className="pointer-events-none absolute inset-0 z-0 hidden overflow-hidden md:block" aria-hidden="true">
+      {floatingIcons.map(({ Icon, top, left, size, duration, delay, drift, rotate }, i) => (
+        <motion.div
+          key={i}
+          className="absolute text-accent/20"
+          style={{ top, left }}
+          initial={{ opacity: 0 }}
+          animate={{ y: [0, drift, 0], rotate: [0, rotate, 0], opacity: 0.9 }}
+          transition={{
+            y: { duration, repeat: Infinity, ease: "easeInOut", delay },
+            rotate: { duration, repeat: Infinity, ease: "easeInOut", delay },
+            opacity: { duration: 1.2, delay },
+          }}
+        >
+          <Icon style={{ width: size, height: size }} strokeWidth={1.5} />
+        </motion.div>
+      ))}
+    </div>
+  );
+}
 
 const featureCards = [
   {
@@ -156,6 +193,7 @@ export function Hero() {
         <div className="absolute inset-0 h-full w-full overflow-hidden">
           <div className="linework pointer-events-none absolute inset-0 opacity-70" />
         </div>
+        <FloatingIcons />
 
         {/* Left Side Content */}
         <motion.div 
