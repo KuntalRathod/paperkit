@@ -9,11 +9,12 @@ type BrandLogoProps = {
 export function BrandLogo({ className, priority = false }: BrandLogoProps) {
   return (
     <Image
-      src="/paperkit.png"
+      src="/logo.svg"
       alt="Paperkit Logo"
       width={64}
       height={64}
-      className={cn("object-contain drop-shadow-sm", className)}
+      unoptimized
+      className={cn("shrink-0 rounded-xl object-contain shadow-sm", className)}
       priority={priority}
     />
   );
