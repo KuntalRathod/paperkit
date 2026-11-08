@@ -16,17 +16,17 @@ interface ButtonProps extends Omit<HTMLMotionProps<"button">, "children" | "size
 
 const variants = {
   primary:
-    "border border-border bg-accent text-accent-foreground shadow-sm hover:bg-accent-hover disabled:hover:bg-accent",
+    "bg-accent text-accent-foreground shadow-sm hover:bg-accent-hover hover:shadow-md disabled:hover:bg-accent",
   secondary:
-    "border border-border bg-bg-subtle text-text-primary shadow-sm hover:border-border-hover hover:bg-bg-elevated",
+    "border border-border bg-surface text-text-primary shadow-sm hover:border-border-hover hover:bg-bg-subtle",
   destructive: "bg-error text-white shadow-md disabled:hover:bg-error",
   ghost:
     "bg-transparent text-text-secondary hover:bg-bg-subtle hover:text-text-primary",
 };
 
 const sizes = {
-  sm: "px-3 py-1.5 text-xs",
-  md: "px-4 py-2.5 text-sm",
+  sm: "px-3.5 py-2 text-xs",
+  md: "px-5 py-3 text-sm",
 };
 
 export function Button({
@@ -46,7 +46,7 @@ export function Button({
       whileTap={disabled || loading ? undefined : { scale: 0.98 }}
       disabled={disabled || loading}
       className={cn(
-        "inline-flex items-center justify-center gap-2 rounded-none font-medium transition-all duration-150 ease-out",
+        "inline-flex items-center justify-center gap-2 rounded-xl font-medium transition-all duration-150 ease-out",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/15 focus-visible:ring-offset-2 focus-visible:ring-offset-bg",
         "disabled:cursor-not-allowed disabled:opacity-70",
         variants[variant],

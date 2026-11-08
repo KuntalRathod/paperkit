@@ -29,7 +29,7 @@ export function ProcessButton({
       <button
         type="button"
         className={cn(
-          "group relative inline-flex w-full items-center justify-center overflow-hidden bg-accent text-accent-foreground rounded-none px-8 py-3.5 font-mono text-xs font-bold uppercase tracking-widest transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2",
+          "group relative inline-flex w-full items-center justify-center overflow-hidden bg-accent text-accent-foreground rounded-xl px-8 py-3.5 text-sm font-semibold shadow-sm transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2",
           !disabled 
             ? "active:scale-[0.99] hover:bg-accent-hover shadow-sm" 
             : "cursor-not-allowed text-accent-foreground/50"

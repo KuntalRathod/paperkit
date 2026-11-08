@@ -17,7 +17,7 @@ export function GlassIcon({
 }: GlassIconProps) {
   return (
     <Icon 
-      className={cn("text-[#14b8a6]", className)} 
+      className={cn("text-accent", className)} 
       strokeWidth={2}
       {...props} 
     />

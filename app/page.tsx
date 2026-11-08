@@ -38,19 +38,19 @@ export default function Home() {
         <Hero />
         <section
           id="tools"
-          className="mx-auto max-w-5xl border-x border-border px-4 py-6 pb-16"
+          className="mx-auto max-w-6xl scroll-mt-20 px-4 pb-20 pt-4 sm:px-6"
         >
-          <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <div className="mb-10 flex flex-col gap-3 sm:flex-row sm:items-center">
             <div className="flex-1 relative group">
               <Input
                 value=""
                 readOnly
                 onClick={() => setIsSearchOpen(true)}
                 placeholder="Search tools..."
-                className="w-full cursor-pointer text-text-muted mono-copy font-mono placeholder:font-mono rounded-none border border-border bg-bg-elevated h-10 pr-10"
+                className="h-11 w-full cursor-pointer rounded-xl border border-border bg-surface pr-10 shadow-sm"
                 aria-label="Search tools"
               />
-              <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-text-secondary group-hover:text-[#14b8a6] transition-colors">
+              <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-text-secondary group-hover:text-accent-text transition-colors">
                 <Search className="h-4 w-4" />
               </div>
             </div>
@@ -62,18 +62,18 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="space-y-10">
+          <div className="space-y-14">
             {activeCategory === "all" ? (
               <>
                 <section id="featured-tools" className="scroll-mt-24">
-                  <h2 className="mono-copy mb-3 text-sm font-medium text-text-primary">
+                  <h2 className="mb-4 text-lg font-semibold tracking-tight text-text-primary">
                     Featured tools
                   </h2>
                   <ToolGrid tools={featuredTools} />
                 </section>
 
                 <section id="all-tools" className="scroll-mt-24">
-                  <h2 className="mono-copy mb-3 text-sm font-medium text-text-primary">
+                  <h2 className="mb-4 text-lg font-semibold tracking-tight text-text-primary">
                     All tools
                   </h2>
                   <ToolGrid tools={filteredTools} />
@@ -82,14 +82,14 @@ export default function Home() {
             ) : (
               <>
                 <section id="category-tools" className="scroll-mt-24">
-                  <h2 className="mono-copy mb-3 text-sm font-medium text-text-primary">
+                  <h2 className="mb-4 text-lg font-semibold tracking-tight text-text-primary">
                     {activeCategoryLabel}
                   </h2>
                   <ToolGrid tools={filteredTools} />
                 </section>
 
                 <section id="featured-tools" className="scroll-mt-24">
-                  <h2 className="mono-copy mb-3 text-sm font-medium text-text-primary">
+                  <h2 className="mb-4 text-lg font-semibold tracking-tight text-text-primary">
                     Featured tools
                   </h2>
                   <ToolGrid tools={featuredTools} />

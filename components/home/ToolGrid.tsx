@@ -26,7 +26,7 @@ const item = {
 export function ToolGrid({ tools }: ToolGridProps) {
   if (tools.length === 0) {
     return (
-      <div className="mono-copy border border-border bg-bg-elevated py-12 text-center text-sm text-text-secondary">
+      <div className="rounded-2xl border border-border bg-surface py-12 text-center text-sm text-text-secondary">
         No tools found
       </div>
     );
@@ -37,11 +37,12 @@ export function ToolGrid({ tools }: ToolGridProps) {
       variants={container}
       initial="hidden"
       animate="show"
-      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+      className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3"
     >
       {tools.map((tool) => (
         <motion.div
           key={tool.slug}
+          className="h-full"
           variants={item}
           initial="hidden"
           whileInView="show"

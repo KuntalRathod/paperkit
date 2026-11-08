@@ -57,14 +57,14 @@ export function CategoryFilter({ active, onChange }: CategoryFilterProps) {
         type="button"
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
-          "mono-copy flex w-full items-center justify-between rounded-none border border-border bg-bg-elevated h-10 px-3 text-sm font-medium text-text-primary transition-all duration-150 ease-out focus:border-border-hover focus:outline-none focus:ring-1 focus:ring-accent cursor-pointer",
+          "mono-copy flex w-full items-center justify-between rounded-xl border border-border bg-surface h-11 rounded-xl px-3.5 text-sm font-medium shadow-sm text-text-primary transition-all duration-150 ease-out focus:border-border-hover focus:outline-none focus:ring-1 focus:ring-accent cursor-pointer",
           isOpen && "border-border-hover ring-1 ring-accent"
         )}
         aria-label="Filter by category"
         aria-expanded={isOpen}
       >
         <span className="flex items-center gap-2.5">
-          <ActiveIcon className="h-4 w-4 text-[#14b8a6]" />
+          <ActiveIcon className="h-4 w-4 text-accent-text" />
           {activeCategory.label}
         </span>
         <ChevronDown className={cn("h-4 w-4 text-text-secondary transition-transform duration-200", isOpen && "rotate-180")} />
@@ -77,7 +77,7 @@ export function CategoryFilter({ active, onChange }: CategoryFilterProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.15, ease: "easeOut" }}
-            className="absolute left-0 top-full z-[60] mt-1 w-full rounded-none border border-border bg-bg-elevated shadow-lg"
+            className="absolute left-0 top-full z-[60] mt-1 w-full rounded-xl overflow-hidden border border-border bg-surface shadow-lg !rounded-2xl"
           >
             <div className="flex flex-col py-1">
               {categories.map((category) => {
@@ -95,7 +95,7 @@ export function CategoryFilter({ active, onChange }: CategoryFilterProps) {
                       active === category.id ? "bg-bg-subtle text-text-primary" : "text-text-secondary hover:text-text-primary"
                     )}
                   >
-                    <Icon className="h-4 w-4 shrink-0 text-[#14b8a6] group-hover:scale-110 transition-transform" />
+                    <Icon className="h-4 w-4 shrink-0 text-accent-text group-hover:scale-110 transition-transform" />
                     <span className="mono-copy font-medium">{category.label}</span>
                   </button>
                 );

@@ -1,44 +1,40 @@
 import Link from "next/link";
-
 import { BrandLogo } from "@/components/layout/BrandLogo";
 import { NavbarActions } from "@/components/layout/NavbarActions";
 
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/#featured-tools", label: "Featured" },
+  { href: "/#all-tools", label: "Tools" },
+];
+
 export function Navbar() {
   return (
-    <header className="sticky top-0 z-40 bg-bg/90 backdrop-blur-sm ">
-      <div className="mx-auto flex h-[51px] max-w-5xl items-center justify-between gap-3 border-b border-x border-dashed border-border px-3 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-40 px-3 pt-3 sm:px-6">
+      <div className="glass-panel mx-auto flex h-14 max-w-6xl items-center justify-between gap-3 !rounded-full px-3 pl-4 sm:px-4">
         <Link
           href="/"
-          className="flex min-w-0 flex-row items-center py-3 text-text-primary transition-colors hover:text-text-primary/80"
+          className="flex min-w-0 items-center gap-2 text-text-primary"
           aria-label="Paperkit home"
         >
-          <BrandLogo priority className="-mr-4" />
-          <span className="hero-display truncate text-xl font-black text-text-primary">
+          <BrandLogo priority className="h-8 w-8" />
+          <span className="truncate text-base font-semibold tracking-tight">
             Paperkit
           </span>
         </Link>
         <nav
           aria-label="Primary"
-          className="mono-copy hidden items-center gap-1 text-xs text-text-secondary md:flex" 
+          className="hidden items-center gap-1 text-sm text-text-secondary md:flex"
         >
-          <Link
-            href="/"
-            className="rounded-none px-2.5 py-1.5 transition-colors hover:bg-bg-subtle hover:text-text-primary "
-          >
-            Home
-          </Link>
-          <Link
-            href="/#featured-tools"
-            className="rounded-none px-2.5 py-1.5 transition-colors hover:bg-bg-subtle hover:text-text-primary "
-          >
-            Featured
-          </Link>
-          <Link
-            href="/#all-tools"
-            className="rounded-none px-2.5 py-1.5 transition-colors hover:bg-bg-subtle hover:text-text-primary "
-          >
-            Tools
-          </Link>
+          {links.map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              className="rounded-full px-3.5 py-1.5 transition-colors hover:bg-bg-subtle hover:text-text-primary"
+            >
+              {l.label}
+            </Link>
+          ))}
         </nav>
         <NavbarActions />
       </div>

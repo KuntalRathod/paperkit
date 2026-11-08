@@ -18,17 +18,17 @@ function TypingIndicator() {
   return (
     <div className="flex space-x-1.5 items-center h-6 px-2">
       <motion.div 
-        className="w-1.5 h-1.5 bg-text-muted rounded-none" 
+        className="w-1.5 h-1.5 bg-text-muted rounded-xl" 
         animate={{ opacity: [0.4, 1, 0.4] }} 
         transition={{ duration: 1.4, repeat: Infinity, delay: 0 }} 
       />
       <motion.div 
-        className="w-1.5 h-1.5 bg-text-muted rounded-none" 
+        className="w-1.5 h-1.5 bg-text-muted rounded-xl" 
         animate={{ opacity: [0.4, 1, 0.4] }} 
         transition={{ duration: 1.4, repeat: Infinity, delay: 0.2 }} 
       />
       <motion.div 
-        className="w-1.5 h-1.5 bg-text-muted rounded-none" 
+        className="w-1.5 h-1.5 bg-text-muted rounded-xl" 
         animate={{ opacity: [0.4, 1, 0.4] }} 
         transition={{ duration: 1.4, repeat: Infinity, delay: 0.4 }} 
       />
@@ -150,17 +150,17 @@ Valid types are "tool", "product", "place", or "resource".`,
             <p className="text-sm text-text-secondary">Extracting text...</p>
           ) : null}
         </div>
-        <div className="glass-card flex h-[60vh] max-h-[600px] min-h-[400px] flex-col overflow-hidden rounded-none">
+        <div className="glass-card flex h-[60vh] max-h-[600px] min-h-[400px] flex-col overflow-hidden rounded-xl">
             <div ref={scrollerRef} className="flex-1 space-y-3 overflow-y-auto p-4">
             {messages.length === 0 ? (
               <div className="flex h-full flex-col items-center justify-center gap-6 p-6">
                 {!extractedText ? (
-                  <div className="text-sm text-text-muted mono-copy uppercase tracking-widest text-[8px]">
+                  <div className="text-sm text-text-muted mono-copy text-xs">
                     UPLOAD PDF TO START CHAT
                   </div>
                 ) : (
                   <div className="flex flex-col items-start gap-1.5 mt-auto self-start ml-0 mb-2 max-w-[85%]">
-                    <p className="text-[8px] text-text-secondary mb-0.5">Try asking one of these:</p>
+                    <p className="text-xs text-text-secondary mb-0.5">Try asking one of these:</p>
                     {[
                       "What tools are mentioned in this document?",
                       "Can you summarize the main points in 3 bullets?",
@@ -172,7 +172,7 @@ Valid types are "tool", "product", "place", or "resource".`,
                           setQuestion(suggestion);
                           void sendMessage(suggestion);
                         }}
-                        className="w-fit text-left px-2 py-1 bg-bg-base/60 border border-border/50 hover:border-[#14b8a6]/60 hover:bg-[#14b8a6]/10 transition-all duration-300 text-[8px] text-text-primary rounded-sm shadow-sm"
+                        className="w-fit text-left px-2 py-1 bg-bg-base/60 border border-border/50 hover:border-accent/60 hover:bg-accent/10 transition-all duration-300 text-xs text-text-primary rounded-sm shadow-sm"
                       >
                         {suggestion}
                       </button>
@@ -211,7 +211,7 @@ Valid types are "tool", "product", "place", or "resource".`,
                     >
                       <div
                         className={cn(
-                          "max-w-[85%] rounded-none px-4 py-3 text-sm leading-relaxed shadow-sm relative",
+                          "max-w-[85%] rounded-xl px-4 py-3 text-sm leading-relaxed shadow-sm relative",
                           isUser
                             ? "bg-[#25D366]/10 border border-[#25D366]/30 text-text-primary"
                             : "bg-bg-subtle border border-border text-text-primary",

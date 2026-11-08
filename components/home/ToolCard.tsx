@@ -1,6 +1,5 @@
 import Link from "next/link";
-
-import { GlassIcon } from "@/components/ui/GlassIcon";
+import { ArrowUpRight } from "lucide-react";
 import type { Tool } from "@/config/tools";
 
 interface ToolCardProps {
@@ -13,17 +12,25 @@ export function ToolCard({ tool }: ToolCardProps) {
   return (
     <Link
       href={`/${tool.slug}`}
-      className="group relative block min-h-[80px] sm:min-h-[110px] border border-border bg-bg-elevated p-3 sm:p-4 transition-all duration-200 ease-out hover:border-border-hover hover:bg-bg-subtle"
+      className="group relative flex h-full flex-col gap-3 rounded-2xl border border-border bg-surface p-4 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-md sm:p-5"
     >
-      <div className="relative flex items-center gap-2 sm:gap-3">
-        <GlassIcon icon={Icon} className="h-4 w-4 text-[#14b8a6]" aria-hidden="true" />
-        <h3 className="mono-copy min-w-0 truncate text-sm font-medium text-text-primary">
+      <div className="flex items-center justify-between">
+        <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent-subtle text-accent-text transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
+          <Icon className="h-5 w-5" aria-hidden="true" />
+        </span>
+        <ArrowUpRight
+          className="h-4 w-4 text-text-muted opacity-0 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100"
+          aria-hidden="true"
+        />
+      </div>
+      <div className="min-w-0">
+        <h3 className="truncate text-sm font-semibold text-text-primary">
           {tool.name}
         </h3>
+        <p className="mt-1 line-clamp-2 text-xs leading-5 text-text-secondary">
+          {tool.description}
+        </p>
       </div>
-      <p className="mono-copy relative mt-2 sm:mt-4 line-clamp-2 text-[10px] sm:text-xs leading-4 sm:leading-5 text-text-secondary">
-        {tool.description}
-      </p>
     </Link>
   );
 }
